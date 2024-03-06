@@ -1,0 +1,84 @@
+<form id="myForm" style="margin-left: 40%">
+  <label>Name</label>
+  <input
+    name="name"
+    [(ngModel)]="name"
+    class="input-button"
+    type="text"
+    id="nameInput"
+    placeholder="Enter your name"
+  />
+
+  <label>Email</label>
+  <input
+    name="email"
+    [(ngModel)]="email"
+    class="input-button"
+    type="email"
+    id="emailInput"
+    placeholder="Enter your email"
+  />
+
+  <label>Age</label>
+  <input
+    name="age"
+    [(ngModel)]="age"
+    class="input-button"
+    type="number"
+    id="phoneInput"
+    placeholder="Enter your phone no."
+  />
+
+  <Button
+    class="submit-button"
+    (click)="checkIfFormValidBeforeSubmit()"
+    type="button"
+    >Submit</Button
+  >
+</form>
+
+<!-- table -->
+
+<div class="table">
+  <h2 class="table-heading-text">Contents in table</h2>
+  <table class="data-display" border="1px solid black">
+    <thead class="heading">
+      <tr>
+        <td class="heading-data">Name</td>
+        <td class="heading-data">Age</td>
+        <td class="heading-data">Email</td>
+        <td class="heading-data">Actions</td>
+      </tr>
+    </thead>
+
+    <tbody class="table-body">
+      <tr class="row" *ngFor="let post of posts">
+        <td class="row-data">{{ post.name }}</td>
+        <td class="row-data">{{ post.age }}</td>
+        <td class="row-data">{{ post.email }}</td>
+        <td class="row-data">
+          <button class="edit-button" (click)="editData(post.id)">Edit</button>
+          <button class="delete-button" (click)="deleteData(post.id)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+
+    <tfoot></tfoot>
+  </table>
+
+  <!-- Update Form
+   <form *ngIf="selectedPostForUpdate" id="updateForm" style="margin-left: 40%">
+    <label>Name</label>
+    <input name="name" [(ngModel)]="selectedPostForUpdate.name" class="input-button" type="text" id="nameInput" placeholder="Enter your name">
+
+    <label>Email</label>
+    <input name="email" [(ngModel)]="selectedPostForUpdate.email" class="input-button" type="email" id="emailInput" placeholder="Enter your email">
+
+    <label>Age</label>
+    <input name="age" [(ngModel)]="selectedPostForUpdate.age" class="input-button" type="number" id="ageInput" placeholder="Enter your age">
+
+    <button class="submit-button" (click)="updateData()" type="button">Update</button>
+  </form> -->
+</div>

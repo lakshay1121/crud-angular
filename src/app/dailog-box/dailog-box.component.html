@@ -1,0 +1,37 @@
+<div class="container">
+  <form id="myForm" style="margin-left: 40%">
+    <label>Name</label>
+    <input
+      name="name"
+      [(ngModel)]="name"
+      class="input-button"
+      type="text"
+      id="nameInput"
+      placeholder="Enter your name"
+    />
+
+    <label>Email</label>
+    <input
+      name="email"
+      [(ngModel)]="email"
+      class="input-button"
+      type="email"
+      id="emailInput"
+      placeholder="Enter your email"
+    />
+
+    <label>Age</label>
+    <input
+      name="age"
+      [(ngModel)]="age"
+      class="input-button"
+      type="number"
+      id="phoneInput"
+      placeholder="Enter your phone no."
+    />
+
+    <Button class="submit-button" (click)="getModifiedValues()" type="button"
+      >Submit</Button
+    >
+  </form>
+</div>
