@@ -36,26 +36,34 @@ export class FormComponent implements OnInit {
       alert('Please fill in all required fields (Name, Email, and Age).');
     }
   }
-
-  submitForm() {
-    location.reload();
+ submitForm() {
+    const newId = this.posts.length + 1;
     let data = {
+      id:newId.toString(),
       name: this.name,
       age: this.age,
       email: this.email,
     };
-    this.crudApi.addData(data).subscribe((res) => {
-      console.log(res);
-    });
+
+    try{
+      this.crudApi.addData(data).subscribe((res) => {
+        console.log(res);
+      });
+    }
+   catch(error){
+    console.log("Error while posting data", error);
+   }
   }
 
   getAllPosts() {
     this.crudApi.getData().subscribe((data) => {
+
+      console.log("This is data" , data);
       this.posts = data;
     });
   }
 
-  editData(id: number): void {
+  editData(id: string): void {
     const dialogRef = this.dailog.open(DailogBoxComponent, this.posts[id]);
 
     dialogRef.afterClosed().subscribe((result) => {
@@ -70,15 +78,15 @@ export class FormComponent implements OnInit {
     });
   }
 
-  updateData(id: number, result: any): void {
+  updateData(id: string, result: any): void {
     this.crudApi.updateData(id.toString(), result).subscribe((res) => {
-      location.reload();
+      // location.reload();
     });
   }
 
   deleteData(id: string) {
     if (confirm('Are you sure?')) {
-      location.reload();
+      // location.reload();
       this.crudApi.deleteData(id).subscribe((res) => {
         try {
           alert('Delete Successfully');

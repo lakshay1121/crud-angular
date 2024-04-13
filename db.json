@@ -5,6 +5,12 @@
       "email": "lakshay121@gmail.com",
       "age": 21,
       "id": "5fd1"
+    },
+    {
+      "id": "9a5f",
+      "name": "rohit",
+      "age": 22,
+      "email": "rohit@gmail.com"
     }
   ]
 }
